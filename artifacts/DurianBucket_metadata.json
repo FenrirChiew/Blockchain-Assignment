@@ -1,0 +1,83 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "kind",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weight",
+						"type": "uint256"
+					}
+				],
+				"name": "addDurian",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "durians",
+				"outputs": [
+					{
+						"internalType": "contract Durian",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Durian.sol": "DurianBucket"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Durian.sol": {
+			"keccak256": "0x5a20a19a0f27f3acceec1403be85e4e37a072984b0c33850bacaebe5effd7aef",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://aaad43efb19eb65479da8f7aac12be37f9ca961d025bedbd220ed80e4f3fd3d3",
+				"dweb:/ipfs/Qme4y8SUfopxhW8PABssvPCFcoySZSknZAbX4JqpcsGLHz"
+			]
+		}
+	},
+	"version": 1
+}
