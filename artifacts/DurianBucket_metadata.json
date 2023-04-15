@@ -16,6 +16,36 @@
 						"internalType": "uint256",
 						"name": "weight",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "harvested_date_time",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "harvested_by",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "harvest_tree",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "harvest_farm",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "reviews",
+						"type": "string"
 					}
 				],
 				"name": "addDurian",
@@ -71,11 +101,11 @@
 	},
 	"sources": {
 		"Durian.sol": {
-			"keccak256": "0x5a20a19a0f27f3acceec1403be85e4e37a072984b0c33850bacaebe5effd7aef",
+			"keccak256": "0x01de0840b0f09a6730171083343c157bb3649c96008a805167e889e1756c4ff0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://aaad43efb19eb65479da8f7aac12be37f9ca961d025bedbd220ed80e4f3fd3d3",
-				"dweb:/ipfs/Qme4y8SUfopxhW8PABssvPCFcoySZSknZAbX4JqpcsGLHz"
+				"bzz-raw://cc05a859ebc70543f229706266a9357a5f03129b05d17a5a6ffb9780107f51b7",
+				"dweb:/ipfs/QmVjAU47HiYCPqVd75FMCXB3NaiYtUhuHPCzdasfqYDshT"
 			]
 		}
 	},
