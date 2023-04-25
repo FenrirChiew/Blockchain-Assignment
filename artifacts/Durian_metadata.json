@@ -345,11 +345,11 @@
 	},
 	"sources": {
 		"Durian.sol": {
-			"keccak256": "0x01de0840b0f09a6730171083343c157bb3649c96008a805167e889e1756c4ff0",
+			"keccak256": "0x816701c995e3e3a47c84661acc1e8d280cf94b3402fa3a5058be55231db84477",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://cc05a859ebc70543f229706266a9357a5f03129b05d17a5a6ffb9780107f51b7",
-				"dweb:/ipfs/QmVjAU47HiYCPqVd75FMCXB3NaiYtUhuHPCzdasfqYDshT"
+				"bzz-raw://1620034099a0d1bfe733b446db4db2df8feebc17b82b3f5e6e8ebec17c0da3e7",
+				"dweb:/ipfs/QmZaM4JJcFceL18FfMPrUopPbjwEpzTwTLeZHr3BGRk4ah"
 			]
 		}
 	},
