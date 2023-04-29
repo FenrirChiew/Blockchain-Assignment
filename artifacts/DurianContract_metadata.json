@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -48,17 +48,40 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "address",
-						"name": "owner",
-						"type": "address"
-					},
-					{
 						"internalType": "string",
 						"name": "reviews",
 						"type": "string"
 					}
 				],
 				"name": "addDurian",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "newstaffs",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "title",
+						"type": "string"
+					}
+				],
+				"name": "addStaff",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -82,7 +105,13 @@
 					}
 				],
 				"name": "deliverDurian",
-				"outputs": [],
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -144,6 +173,16 @@
 					{
 						"internalType": "string",
 						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "onDelivery",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "status",
 						"type": "string"
 					}
 				],
@@ -211,6 +250,16 @@
 								"internalType": "string",
 								"name": "location",
 								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "onDelivery",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "status",
+								"type": "string"
 							}
 						],
 						"internalType": "struct DurianContract.Durian",
@@ -246,6 +295,93 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "destination",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "status",
+						"type": "string"
+					}
+				],
+				"name": "receiveDurians",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "soldDurians",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "staffs",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "staffAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "title",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -263,7 +399,7 @@
 		"compilationTarget": {
 			"DurianContract.sol": "DurianContract"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -276,11 +412,11 @@
 	},
 	"sources": {
 		"DurianContract.sol": {
-			"keccak256": "0x8f6fd55309bb9bb88ee0fc6b01bfa337472939dfa9f9f5834d86335034b4765c",
+			"keccak256": "0x13e1eaea0efed22a84a6008fc02a98310ad3cf3aa52c76673e1d0fdc9c6e8714",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9bf07783e55c684fc39a2737626d0bec1470ad984d21d4c61324d57cae349029",
-				"dweb:/ipfs/Qmabw6JZhD64KryrYiBsup9VvQz1sF8L5qSeWtcnWhWKUR"
+				"bzz-raw://c018d03033fb97cdd86ff827bb3aa1f44084230712e32259dea4612715badc6d",
+				"dweb:/ipfs/QmTqPYJTcYPK9mfEbmj5mcpjqoNWKv4ja458zpXznhf145"
 			]
 		}
 	},
