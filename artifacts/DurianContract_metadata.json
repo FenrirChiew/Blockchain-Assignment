@@ -1,10 +1,15 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
 			{
 				"inputs": [
 					{
@@ -51,16 +56,98 @@
 						"internalType": "string",
 						"name": "reviews",
 						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "total_durians",
-						"type": "uint256"
 					}
 				],
 				"name": "addDurian",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "startingPoint",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "destination",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "deliverDurian",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "durians",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "kind",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weight",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "harvested_date_time",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "harvested_by",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "harvest_tree",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "harvest_farm",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "reviews",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -121,9 +208,9 @@
 								"type": "string"
 							},
 							{
-								"internalType": "uint256",
-								"name": "total_durians",
-								"type": "uint256"
+								"internalType": "string",
+								"name": "location",
+								"type": "string"
 							}
 						],
 						"internalType": "struct DurianContract.Durian",
@@ -148,61 +235,16 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "id",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "kind",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "weight",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "harvested_date_time",
-						"type": "uint256"
-					},
+				"inputs": [],
+				"name": "ownerFarm",
+				"outputs": [
 					{
 						"internalType": "address",
-						"name": "harvested_by",
+						"name": "",
 						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "harvest_tree",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "harvest_farm",
-						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "owner",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "reviews",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "total_durians",
-						"type": "uint256"
 					}
 				],
-				"name": "setDurianById",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -221,7 +263,7 @@
 		"compilationTarget": {
 			"DurianContract.sol": "DurianContract"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -234,11 +276,11 @@
 	},
 	"sources": {
 		"DurianContract.sol": {
-			"keccak256": "0x7b0281bc6ead1aec6a534434e9c3d907bdda2dffe17c3e85b1ae07cb45379000",
+			"keccak256": "0x8f6fd55309bb9bb88ee0fc6b01bfa337472939dfa9f9f5834d86335034b4765c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1ab2c0a3a74e3de3e2ba28e966e272930250bc804c946fe4ffbe078e05d976e6",
-				"dweb:/ipfs/QmVAxUyDNcvMZTvm7duY1wpj877E3vEdM7mbMgyFxvDmCC"
+				"bzz-raw://9bf07783e55c684fc39a2737626d0bec1470ad984d21d4c61324d57cae349029",
+				"dweb:/ipfs/Qmabw6JZhD64KryrYiBsup9VvQz1sF8L5qSeWtcnWhWKUR"
 			]
 		}
 	},
