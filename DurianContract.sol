@@ -8,12 +8,13 @@ contract DurianContract {
         uint256 kind;
         uint256 weight;
         uint256 harvested_date_time;
-        uint256 harvested_by;
+        address harvested_by;
         uint256 harvest_tree;
         uint256 harvest_farm;
-        uint256 owner;
-        uint256 reviews;
-        uint256 image;
+        address owner;
+        string reviews;
+        uint256 total_durians;
+
     }
 
     function addDurian(
@@ -21,12 +22,12 @@ contract DurianContract {
         uint256 kind,
         uint256 weight,
         uint256 harvested_date_time,
-        uint256 harvested_by,
+        address harvested_by,
         uint256 harvest_tree,
         uint256 harvest_farm,
-        uint256 owner,
-        uint256 reviews,
-        uint256 image
+        address owner,
+        string memory reviews,
+        uint256 total_durians
     ) public {
         durianList.push(
             Durian(
@@ -39,7 +40,7 @@ contract DurianContract {
                 harvest_farm,
                 owner,
                 reviews,
-                image
+                total_durians+=1
             )
         );
     }
@@ -55,12 +56,12 @@ contract DurianContract {
         uint256 kind,
         uint256 weight,
         uint256 harvested_date_time,
-        uint256 harvested_by,
+        address harvested_by,
         uint256 harvest_tree,
         uint256 harvest_farm,
-        uint256 owner,
-        uint256 reviews,
-        uint256 image
+        address owner,
+        string memory reviews,
+        uint256 total_durians
     ) public {
         durianList[id] = Durian(
             id,
@@ -72,7 +73,7 @@ contract DurianContract {
             harvest_farm,
             owner,
             reviews,
-            image
+            total_durians
         );
     }
 

@@ -28,9 +28,9 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "harvested_by",
-						"type": "uint256"
+						"type": "address"
 					},
 					{
 						"internalType": "uint256",
@@ -43,18 +43,18 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "owner",
-						"type": "uint256"
+						"type": "address"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "reviews",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
 						"internalType": "uint256",
-						"name": "image",
+						"name": "total_durians",
 						"type": "uint256"
 					}
 				],
@@ -96,9 +96,9 @@
 								"type": "uint256"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "address",
 								"name": "harvested_by",
-								"type": "uint256"
+								"type": "address"
 							},
 							{
 								"internalType": "uint256",
@@ -111,18 +111,18 @@
 								"type": "uint256"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "address",
 								"name": "owner",
-								"type": "uint256"
+								"type": "address"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "string",
 								"name": "reviews",
-								"type": "uint256"
+								"type": "string"
 							},
 							{
 								"internalType": "uint256",
-								"name": "image",
+								"name": "total_durians",
 								"type": "uint256"
 							}
 						],
@@ -170,9 +170,9 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "harvested_by",
-						"type": "uint256"
+						"type": "address"
 					},
 					{
 						"internalType": "uint256",
@@ -185,18 +185,18 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "owner",
-						"type": "uint256"
+						"type": "address"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "reviews",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
 						"internalType": "uint256",
-						"name": "image",
+						"name": "total_durians",
 						"type": "uint256"
 					}
 				],
@@ -234,11 +234,11 @@
 	},
 	"sources": {
 		"DurianContract.sol": {
-			"keccak256": "0xbd82a6273d01b6467c0b3dba3a09156a147bcdd63f9317fad53588d1cd1c377e",
+			"keccak256": "0x7b0281bc6ead1aec6a534434e9c3d907bdda2dffe17c3e85b1ae07cb45379000",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0e03d6d27a407b526eb96eb90ab7b40ec9464800ba3f67188db39a4bf3c324a9",
-				"dweb:/ipfs/QmXLgAyN4L4EBgh2L8DL5GbthpuQRQUq5Xh2maGJxqwLY5"
+				"bzz-raw://1ab2c0a3a74e3de3e2ba28e966e272930250bc804c946fe4ffbe078e05d976e6",
+				"dweb:/ipfs/QmVAxUyDNcvMZTvm7duY1wpj877E3vEdM7mbMgyFxvDmCC"
 			]
 		}
 	},
