@@ -51,9 +51,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address[]",
+						"internalType": "address",
 						"name": "newstaffs",
-						"type": "address[]"
+						"type": "address"
 					},
 					{
 						"internalType": "uint256",
@@ -235,9 +235,103 @@
 				"name": "getDurianById",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"components": [
+							{
+								"internalType": "string",
+								"name": "id",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "species",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "weight",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "harvested_date_time",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "harvested_by",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "harvest_tree",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "harvest_farm",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "owner",
+								"type": "address"
+							},
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "personalRemarks",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "color",
+										"type": "string"
+									},
+									{
+										"internalType": "enum DurianContract.RatingNo",
+										"name": "taste",
+										"type": "uint8"
+									},
+									{
+										"internalType": "enum DurianContract.RatingNo",
+										"name": "fragrance",
+										"type": "uint8"
+									},
+									{
+										"internalType": "enum DurianContract.RatingNo",
+										"name": "creaminess",
+										"type": "uint8"
+									},
+									{
+										"internalType": "enum DurianContract.RatingNo",
+										"name": "overall_rating",
+										"type": "uint8"
+									}
+								],
+								"internalType": "struct DurianContract.Reviews",
+								"name": "reviews",
+								"type": "tuple"
+							},
+							{
+								"internalType": "string",
+								"name": "location",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "onDelivery",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "status",
+								"type": "string"
+							}
+						],
+						"internalType": "struct DurianContract.Durian",
 						"name": "",
-						"type": "uint256"
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -259,6 +353,19 @@
 			{
 				"inputs": [],
 				"name": "getTotalDurians",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTotalstaffs",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -364,11 +471,24 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "staffCount",
+				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"name": "staffs",
@@ -426,11 +546,11 @@
 	},
 	"sources": {
 		"DurianContract.sol": {
-			"keccak256": "0x113304c1ce36f2b670c358adf789a0e06259268397eef3ae591527f088c6ef23",
+			"keccak256": "0x174f666278ae79b775082ab3dde504483a469ba401aff168e587d0bdffa7f178",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3ab33cc9cbca36f566e70f000cbf64f34cdb343cbe6fd7b0e39bc8b7934d3db1",
-				"dweb:/ipfs/QmXehQ5Mb5LZxMXFEX7AM8vPQPvi6J3DmgbQkQ9q8pUgKN"
+				"bzz-raw://9c330f7691e452ea9d4988cb17af02ebebdb1500401e8db3f9cd6f58511a657a",
+				"dweb:/ipfs/QmNp5pAos8UenBSkxnJLGkz6enJsrp9hfLdsC8WBPvwvJw"
 			]
 		}
 	},

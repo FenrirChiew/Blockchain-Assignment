@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 contract DurianContract {
     address public ownerFarm;
     uint256 public durianCount;
+    uint256 public staffCount;
     
     //set owner of blockchain access control
     modifier onlyBy(address _account) {
@@ -12,21 +13,18 @@ contract DurianContract {
     }
 
     //set staff access control
-    modifier onlyByStaff() {
-        address addressofStaff;
-        for (uint256 i = staffs.length; i == 0; i--) {
-            if (msg.sender == ownerFarm) {
-                addressofStaff = ownerFarm;
-                break;
-            }
-            if (staffs[i].staffAddress == msg.sender) {
-                addressofStaff = staffs[i].staffAddress;
-                break;
-            }
-        }
-        require(msg.sender == addressofStaff);
+    modifier recieveAccess() {
+        require(compare(staffs[msg.sender].title, "Distribution Worker")||compare(staffs[msg.sender].title, "Retail Worker")||(msg.sender == ownerFarm));
         _;
-    }
+    }//access for retrieving durian
+    modifier deliverAccess() {
+        require(compare(staffs[msg.sender].title, "Distribution Worker")||compare(staffs[msg.sender].title, "Farm Worker")||(msg.sender == ownerFarm));
+        _;
+    }//access for delivering durian
+    modifier harvestAccess() {
+        require(compare(staffs[msg.sender].title, "Farm Worker")||(msg.sender == ownerFarm));
+        _;
+    }//access for adding durian
 
     //string comparison workaround
     function compare(string memory str1, string memory str2) private pure returns (bool) {
@@ -44,7 +42,7 @@ contract DurianContract {
         string name;
         string title;
     }
-    Staff[] public staffs;//list of staff declaration
+    mapping (address => Staff) public staffs; //staff dictionary
 
     //durian attributes
     struct Durian {
@@ -104,21 +102,18 @@ contract DurianContract {
 
     //add new staff
     function addStaff(
-        address[] memory newstaffs, 
+        address newstaffs, 
         uint256 id, 
         string memory name, 
         string memory title
     ) public onlyBy(ownerFarm) {
-        for (uint256 i = newstaffs.length; i == 0; i--) {
-            staffs.push(
-                Staff(
-                    newstaffs[i],
-                    id,
-                    name,
-                    title
-                )
-            );
-        }
+        staffs[newstaffs] = Staff(
+            newstaffs, 
+            id, 
+            name, 
+            title 
+        );
+        staffCount++;
     }
 
     //adding a new durian -- maps id to the struct for durian
@@ -129,7 +124,7 @@ contract DurianContract {
         uint256 harvested_date_time,
         uint256 harvest_tree,
         uint256 harvest_farm
-    ) public onlyByStaff() {
+    ) public harvestAccess() {
         durians[id] = Durian(
             id, 
             species, 
@@ -147,14 +142,12 @@ contract DurianContract {
         durianCount++;
     }
 
-    
-
     //worker submit durian for delivery
     function deliverDurian(
         string memory startingPoint,
         string memory destination,
         string memory id
-    ) onlyByStaff() public returns (bool) {
+    ) deliverAccess() public returns (bool) {
         if (compare(startingPoint, durians[id].location)) {
             durians[id].location = destination;
             durians[id].onDelivery = true;
@@ -168,7 +161,7 @@ contract DurianContract {
         string memory id,
         string memory destination,
         string memory status
-    ) public onlyByStaff() returns (bool) {
+    ) public recieveAccess() returns (bool) {
         if (compare(destination, durians[id].location)) {
             durians[id].status = status;
             durians[id].onDelivery = false;
@@ -215,9 +208,14 @@ contract DurianContract {
         return durianCount;
     }
 
+    //total ammount of staff in the system
+    function getTotalstaffs() public view returns (uint256) {
+        return staffCount;
+    }
+
     //specific durian
-    function getDurianById(string memory id) public view returns (uint256) {
-        return durians[id].species;
+    function getDurianById(string memory id) public view returns (Durian memory) {
+        return durians[id];
     }
 
     //owner address
