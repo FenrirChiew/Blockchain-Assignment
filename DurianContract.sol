@@ -2,7 +2,8 @@
 pragma solidity ^0.8.0;
 
 contract DurianContract {
-    address public ownerFarm;
+    //declaration
+    address payable public ownerFarm;
     uint256 public durianCount;
     uint256 public staffCount;
     
@@ -10,9 +11,7 @@ contract DurianContract {
     modifier onlyBy(address _account) {
         require(msg.sender == _account);
         _;
-    }
-
-    //set staff access control
+    }//set staff access control
     modifier recieveAccess() {
         require(compare(staffs[msg.sender].title, "Distribution Worker")||compare(staffs[msg.sender].title, "Retail Worker")||(msg.sender == ownerFarm));
         _;
@@ -26,13 +25,16 @@ contract DurianContract {
         _;
     }//access for adding durian
 
+//___________________modifiers________________________
     //string comparison workaround
     function compare(string memory str1, string memory str2) private pure returns (bool) {
         return keccak256(abi.encodePacked(str1)) == keccak256(abi.encodePacked(str2));
     }
 
+//__________________private function__________________
+
     constructor() {
-        ownerFarm = msg.sender;
+        ownerFarm = payable(msg.sender);
     }
 
     //staff attributes
@@ -47,8 +49,8 @@ contract DurianContract {
     //durian attributes
     struct Durian {
         string id;
-        uint256 species;
-        uint256 weight;
+        string species; //inserts the pricing of that species per kg
+        uint256 weight; 
         uint256 harvested_date_time;
         address harvested_by;
         uint256 harvest_tree;
@@ -79,6 +81,15 @@ contract DurianContract {
         RatingNo overall_rating;
     }
     Reviews private defaultDurian = Reviews("default", "default", RatingNo.average, RatingNo.average, RatingNo.average, RatingNo.average);
+
+    //species structure
+    struct SpeciesPrice {
+        string speciesName;
+        uint pricePerKG; //100 == RM1
+    }
+    mapping (string => SpeciesPrice) public PricingList;
+
+//__________________________structures______________________________
 
     //convert ratings
     function convertRatings(uint256 number) private pure returns(RatingNo){
@@ -115,11 +126,10 @@ contract DurianContract {
         );
         staffCount++;
     }
-
-    //adding a new durian -- maps id to the struct for durian
+    //adding new durian -- maps id to the struct for durian
     function addDurian(
         string memory id,
-        uint256 species,
+        string memory species,
         uint256 weight,
         uint256 harvested_date_time,
         uint256 harvest_tree,
@@ -141,6 +151,19 @@ contract DurianContract {
         );
         durianCount++;
     }
+    //adding new price for species
+    function addPrice(
+        string memory name,
+        uint256 price
+    ) public harvestAccess() {
+        PricingList[name] = SpeciesPrice(
+            name,
+            price
+        );
+        durianCount++;
+    }
+
+//===========additions
 
     //worker submit durian for delivery
     function deliverDurian(
@@ -171,13 +194,18 @@ contract DurianContract {
     }
 
     //durian sold ------future modifications needed
-    function soldDurians (
+    function buyDurians (
         address buyer,
         string memory id
-    ) public returns (string memory) {
+    ) public payable returns (string memory) {
         if (compare(durians[id].status, "damaged")) {
             return "durian damaged please select another durian";
         }
+        if (durians[id].weight == 0) {
+            return "durian not found";
+        }
+        require(msg.value >= (durians[id].weight * PricingList[durians[id].species].pricePerKG));
+        ownerFarm.transfer(msg.value);
         durians[id].owner = buyer;
         return "successful";
     }
@@ -201,7 +229,6 @@ contract DurianContract {
         }
     }
 
-
     //Getters
     //total ammount of durian in the system
     function getTotalDurians() public view returns (uint256) {
@@ -222,4 +249,6 @@ contract DurianContract {
     function getOwnerAdd() external view returns (address){
         return ownerFarm;
     }
+
+//_____________________________functions_________________________________
 }

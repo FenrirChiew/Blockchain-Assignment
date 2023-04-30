@@ -14,13 +14,37 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "id",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "PricingList",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "speciesName",
 						"type": "string"
 					},
 					{
 						"internalType": "uint256",
-						"name": "species",
+						"name": "pricePerKG",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "id",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "species",
+						"type": "string"
 					},
 					{
 						"internalType": "uint256",
@@ -51,6 +75,24 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "addPrice",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "newstaffs",
 						"type": "address"
@@ -74,6 +116,30 @@
 				"name": "addStaff",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "id",
+						"type": "string"
+					}
+				],
+				"name": "buyDurians",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -134,9 +200,9 @@
 						"type": "string"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "species",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
 						"internalType": "uint256",
@@ -242,9 +308,9 @@
 								"type": "string"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "string",
 								"name": "species",
-								"type": "uint256"
+								"type": "string"
 							},
 							{
 								"internalType": "uint256",
@@ -381,7 +447,7 @@
 				"name": "ownerFarm",
 				"outputs": [
 					{
-						"internalType": "address",
+						"internalType": "address payable",
 						"name": "",
 						"type": "address"
 					}
@@ -443,30 +509,6 @@
 				],
 				"name": "review",
 				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "buyer",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "id",
-						"type": "string"
-					}
-				],
-				"name": "soldDurians",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -546,11 +588,11 @@
 	},
 	"sources": {
 		"DurianContract.sol": {
-			"keccak256": "0x174f666278ae79b775082ab3dde504483a469ba401aff168e587d0bdffa7f178",
+			"keccak256": "0xc0389c2260c47cad3b96535591ef05d996624ef39d406cb5b39032f88aa56838",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9c330f7691e452ea9d4988cb17af02ebebdb1500401e8db3f9cd6f58511a657a",
-				"dweb:/ipfs/QmNp5pAos8UenBSkxnJLGkz6enJsrp9hfLdsC8WBPvwvJw"
+				"bzz-raw://30741a952cd4e6964e2c9b44075b01a050a0bed41ac8de738a95276a6817a87d",
+				"dweb:/ipfs/QmQNvuTshDGggamPxPDUZ4hi4hHDXQN6PVSas5oLTGdjck"
 			]
 		}
 	},
