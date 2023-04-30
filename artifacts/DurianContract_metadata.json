@@ -400,6 +400,34 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "personalReview",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "color",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256[4]",
+						"name": "numbers",
+						"type": "uint256[4]"
+					}
+				],
+				"name": "review",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "buyer",
 						"type": "address"
@@ -484,11 +512,11 @@
 	},
 	"sources": {
 		"DurianContract.sol": {
-			"keccak256": "0x3e38a37a9d2252afb3f717049b26625d1fcd559e41eaab0fb423243a5a626d30",
+			"keccak256": "0x74975ddc6436607fb6d495a5ae0a69950f49b29286cf67af567c09f67b9d6670",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a8358aa1bec475812223018c2241294e7e3ab7a78961fe4c8f52fe1202970aff",
-				"dweb:/ipfs/QmY9cR2Qq7RgUKMVCmxKSQE2H2UJPQ8uudK6nH4k2qXP4r"
+				"bzz-raw://9c01a931e40e2348a426d42bce290f81759ec54856619b0080c7328f24fe97a4",
+				"dweb:/ipfs/Qmb5dF5AxtZbYjPKGXuK6kHCP32pB9W6i871SwhDrriabh"
 			]
 		}
 	},

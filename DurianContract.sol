@@ -81,6 +81,26 @@ contract DurianContract {
     }
     Reviews private defaultDurian = Reviews("default", "default", RatingNo.average, RatingNo.average, RatingNo.average, RatingNo.average);
 
+    //convert ratings
+    function convertRatings(uint256 number) private pure returns(RatingNo){
+        if (number == 1) {
+            return RatingNo.bad;
+        }
+        if (number == 2) {
+            return RatingNo.still_acceptable;
+        }
+        if (number == 3) {
+            return RatingNo.average;
+        }
+        if (number == 4) {
+            return RatingNo.good;
+        }
+        if (number == 5) {
+            return RatingNo.amazing;
+        }
+        return RatingNo.average;
+    }
+
     //add new staff
     function addStaff(
         address[] memory newstaffs, 
@@ -172,11 +192,14 @@ contract DurianContract {
 
     //customer make review
     function review(
-        string personalReview, 
-        string color, 
-        uint256[4] numbers
-    ) {
-        code
+        uint256 id,
+        string memory personalReview, 
+        string memory color, 
+        uint256[4] memory numbers
+    ) public {
+        if (msg.sender == durians[id].owner) {
+            durians[id].reviews = Reviews(personalReview, color, convertRatings(numbers[0]), convertRatings(numbers[1]), convertRatings(numbers[2]), convertRatings(numbers[3]));
+        }
     }
 
 
