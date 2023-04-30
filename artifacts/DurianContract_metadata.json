@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -13,9 +13,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "id",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
 						"internalType": "uint256",
@@ -31,11 +31,6 @@
 						"internalType": "uint256",
 						"name": "harvested_date_time",
 						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "harvested_by",
-						"type": "address"
 					},
 					{
 						"internalType": "uint256",
@@ -94,9 +89,9 @@
 						"type": "string"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "id",
-						"type": "uint256"
+						"type": "string"
 					}
 				],
 				"name": "deliverDurian",
@@ -111,23 +106,36 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "durianCount",
+				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
 				"name": "durians",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "id",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
 						"internalType": "uint256",
-						"name": "kind",
+						"name": "species",
 						"type": "uint256"
 					},
 					{
@@ -219,111 +227,17 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "id",
-						"type": "uint256"
+						"type": "string"
 					}
 				],
 				"name": "getDurianById",
 				"outputs": [
 					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "id",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "kind",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "weight",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "harvested_date_time",
-								"type": "uint256"
-							},
-							{
-								"internalType": "address",
-								"name": "harvested_by",
-								"type": "address"
-							},
-							{
-								"internalType": "uint256",
-								"name": "harvest_tree",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "harvest_farm",
-								"type": "uint256"
-							},
-							{
-								"internalType": "address",
-								"name": "owner",
-								"type": "address"
-							},
-							{
-								"components": [
-									{
-										"internalType": "string",
-										"name": "personalRemarks",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "color",
-										"type": "string"
-									},
-									{
-										"internalType": "enum DurianContract.RatingNo",
-										"name": "taste",
-										"type": "uint8"
-									},
-									{
-										"internalType": "enum DurianContract.RatingNo",
-										"name": "fragrance",
-										"type": "uint8"
-									},
-									{
-										"internalType": "enum DurianContract.RatingNo",
-										"name": "creaminess",
-										"type": "uint8"
-									},
-									{
-										"internalType": "enum DurianContract.RatingNo",
-										"name": "overall_rating",
-										"type": "uint8"
-									}
-								],
-								"internalType": "struct DurianContract.Reviews",
-								"name": "reviews",
-								"type": "tuple"
-							},
-							{
-								"internalType": "string",
-								"name": "location",
-								"type": "string"
-							},
-							{
-								"internalType": "bool",
-								"name": "onDelivery",
-								"type": "bool"
-							},
-							{
-								"internalType": "string",
-								"name": "status",
-								"type": "string"
-							}
-						],
-						"internalType": "struct DurianContract.Durian",
+						"internalType": "uint256",
 						"name": "",
-						"type": "tuple"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -371,9 +285,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "id",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
 						"internalType": "string",
@@ -400,9 +314,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "id",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
 						"internalType": "string",
@@ -433,9 +347,9 @@
 						"type": "address"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "id",
-						"type": "uint256"
+						"type": "string"
 					}
 				],
 				"name": "soldDurians",
@@ -499,7 +413,7 @@
 		"compilationTarget": {
 			"DurianContract.sol": "DurianContract"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -512,11 +426,11 @@
 	},
 	"sources": {
 		"DurianContract.sol": {
-			"keccak256": "0x74975ddc6436607fb6d495a5ae0a69950f49b29286cf67af567c09f67b9d6670",
+			"keccak256": "0x113304c1ce36f2b670c358adf789a0e06259268397eef3ae591527f088c6ef23",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9c01a931e40e2348a426d42bce290f81759ec54856619b0080c7328f24fe97a4",
-				"dweb:/ipfs/Qmb5dF5AxtZbYjPKGXuK6kHCP32pB9W6i871SwhDrriabh"
+				"bzz-raw://3ab33cc9cbca36f566e70f000cbf64f34cdb343cbe6fd7b0e39bc8b7934d3db1",
+				"dweb:/ipfs/QmXehQ5Mb5LZxMXFEX7AM8vPQPvi6J3DmgbQkQ9q8pUgKN"
 			]
 		}
 	},
