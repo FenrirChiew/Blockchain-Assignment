@@ -4,15 +4,20 @@ pragma solidity ^0.8.0;
 contract DurianContract {
     address public ownerFarm;
     
-    //set owner of blockchain
+    //set owner of blockchain access control
     modifier onlyBy(address _account) {
         require(msg.sender == _account);
         _;
     }
 
-    modifier onlyByThese() {
+    //set staff access control
+    modifier onlyByStaff() {
         address addressofStaff;
         for (uint256 i = staffs.length; i == 0; i--) {
+            if (msg.sender == ownerFarm) {
+                addressofStaff = ownerFarm;
+                break;
+            }
             if (staffs[i].staffAddress == msg.sender) {
                 addressofStaff = staffs[i].staffAddress;
                 break;
@@ -50,12 +55,31 @@ contract DurianContract {
         uint256 harvest_tree;
         uint256 harvest_farm;
         address owner;
-        string reviews;
+        Reviews reviews;
         string location;
         bool onDelivery;
         string status;
     }
     Durian[] public durians; //list of durian declaration
+
+    //enum for rating
+    enum RatingNo {
+        bad, 
+        still_acceptable, 
+        average, 
+        good, 
+        amazing
+    }
+    //review structure
+    struct Reviews{
+        string personalRemarks;
+        string color;
+        RatingNo taste;
+        RatingNo fragrance;
+        RatingNo creaminess;
+        RatingNo overall_rating;
+    }
+    Reviews private defaultDurian = Reviews("default", "default", RatingNo.average, RatingNo.average, RatingNo.average, RatingNo.average);
 
     //add new staff
     function addStaff(
@@ -79,25 +103,24 @@ contract DurianContract {
     //adding a new durian
     function addDurian(
         uint256 id,
-        uint256 kind,
+        uint256 species,
         uint256 weight,
         uint256 harvested_date_time,
         address harvested_by,
         uint256 harvest_tree,
-        uint256 harvest_farm,
-        string memory reviews
-    ) public {
+        uint256 harvest_farm
+    ) public onlyByStaff() {
         durians.push(
             Durian(
                 id,
-                kind,
+                species,
                 weight,
                 harvested_date_time,
                 harvested_by,
                 harvest_tree,
                 harvest_farm,
                 msg.sender,
-                reviews,
+                defaultDurian,
                 "farm",
                 false,
                 "good"
@@ -105,17 +128,14 @@ contract DurianContract {
         );
     }
 
-    //get durian
-    function getDurianById(uint256 id) public view returns (Durian memory) {
-        return durians[id];
-    }
+    
 
     //worker submit durian for delivery
     function deliverDurian(
         string memory startingPoint,
         string memory destination,
         uint256 id
-    ) public returns (bool) {
+    ) onlyByStaff() public returns (bool) {
         if (compare(startingPoint, durians[id].location)) {
             durians[id].location = destination;
             durians[id].onDelivery = true;
@@ -129,7 +149,7 @@ contract DurianContract {
         uint256 id,
         string memory destination,
         string memory status
-    ) public returns (bool) {
+    ) public onlyByStaff() returns (bool) {
         if (compare(destination, durians[id].location)) {
             durians[id].status = status;
             durians[id].onDelivery = false;
@@ -138,8 +158,8 @@ contract DurianContract {
         return false;
     }
 
-    //durian sold
-    function soldDurians(
+    //durian sold ------future modifications needed
+    function soldDurians (
         address buyer,
         uint256 id
     ) public returns (string memory) {
@@ -150,10 +170,29 @@ contract DurianContract {
         return "successful";
     }
 
-    
+    //customer make review
+    function review(
+        string personalReview, 
+        string color, 
+        uint256[4] numbers
+    ) {
+        code
+    }
 
-    //return total ammount of durian in the system
+
+    //Getters
+    //total ammount of durian in the system
     function getTotalDurians() public view returns (uint256) {
         return durians.length;
+    }
+
+    //specific durian
+    function getDurianById(uint256 id) public view returns (Durian memory) {
+        return durians[id];
+    }
+
+    //owner address
+    function getOwnerAdd() external view returns (address){
+        return ownerFarm;
     }
 }

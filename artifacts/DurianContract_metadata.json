@@ -19,7 +19,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "kind",
+						"name": "species",
 						"type": "uint256"
 					},
 					{
@@ -46,11 +46,6 @@
 						"internalType": "uint256",
 						"name": "harvest_farm",
 						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "reviews",
-						"type": "string"
 					}
 				],
 				"name": "addDurian",
@@ -166,9 +161,41 @@
 						"type": "address"
 					},
 					{
-						"internalType": "string",
+						"components": [
+							{
+								"internalType": "string",
+								"name": "personalRemarks",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "color",
+								"type": "string"
+							},
+							{
+								"internalType": "enum DurianContract.RatingNo",
+								"name": "taste",
+								"type": "uint8"
+							},
+							{
+								"internalType": "enum DurianContract.RatingNo",
+								"name": "fragrance",
+								"type": "uint8"
+							},
+							{
+								"internalType": "enum DurianContract.RatingNo",
+								"name": "creaminess",
+								"type": "uint8"
+							},
+							{
+								"internalType": "enum DurianContract.RatingNo",
+								"name": "overall_rating",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct DurianContract.Reviews",
 						"name": "reviews",
-						"type": "string"
+						"type": "tuple"
 					},
 					{
 						"internalType": "string",
@@ -242,9 +269,41 @@
 								"type": "address"
 							},
 							{
-								"internalType": "string",
+								"components": [
+									{
+										"internalType": "string",
+										"name": "personalRemarks",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "color",
+										"type": "string"
+									},
+									{
+										"internalType": "enum DurianContract.RatingNo",
+										"name": "taste",
+										"type": "uint8"
+									},
+									{
+										"internalType": "enum DurianContract.RatingNo",
+										"name": "fragrance",
+										"type": "uint8"
+									},
+									{
+										"internalType": "enum DurianContract.RatingNo",
+										"name": "creaminess",
+										"type": "uint8"
+									},
+									{
+										"internalType": "enum DurianContract.RatingNo",
+										"name": "overall_rating",
+										"type": "uint8"
+									}
+								],
+								"internalType": "struct DurianContract.Reviews",
 								"name": "reviews",
-								"type": "string"
+								"type": "tuple"
 							},
 							{
 								"internalType": "string",
@@ -265,6 +324,19 @@
 						"internalType": "struct DurianContract.Durian",
 						"name": "",
 						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getOwnerAdd",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -412,11 +484,11 @@
 	},
 	"sources": {
 		"DurianContract.sol": {
-			"keccak256": "0x13e1eaea0efed22a84a6008fc02a98310ad3cf3aa52c76673e1d0fdc9c6e8714",
+			"keccak256": "0x3e38a37a9d2252afb3f717049b26625d1fcd559e41eaab0fb423243a5a626d30",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c018d03033fb97cdd86ff827bb3aa1f44084230712e32259dea4612715badc6d",
-				"dweb:/ipfs/QmTqPYJTcYPK9mfEbmj5mcpjqoNWKv4ja458zpXznhf145"
+				"bzz-raw://a8358aa1bec475812223018c2241294e7e3ab7a78961fe4c8f52fe1202970aff",
+				"dweb:/ipfs/QmY9cR2Qq7RgUKMVCmxKSQE2H2UJPQ8uudK6nH4k2qXP4r"
 			]
 		}
 	},
