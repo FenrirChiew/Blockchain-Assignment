@@ -89,6 +89,21 @@ contract DurianContract {
     }
     mapping (string => SpeciesPrice) public PricingList;
 
+    //farm structure
+    struct Farm {
+        string name;
+        string farmID;
+        address farmOwner;
+    }
+    mapping (string => Farm) public FarmList;
+
+    //tree structure
+    struct Tree {
+        string treeID;
+        string speciesName;
+        Durian[] fruits;
+    }
+
 //__________________________structures______________________________
 
     //convert ratings
