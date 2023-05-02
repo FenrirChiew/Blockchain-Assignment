@@ -6,6 +6,7 @@ contract DurianContract {
     address payable public ownerFarm;
     uint256 public durianCount;
     uint256 public staffCount;
+    string[] public array;
     
     //set owner of blockchain access control
     modifier onlyBy(address _account) {
@@ -53,7 +54,7 @@ contract DurianContract {
         uint256 weight; 
         uint256 harvested_date_time;
         address harvested_by;
-        uint256 harvest_tree;
+        string harvest_tree;
         uint256 harvest_farm;
         address owner;
         Reviews reviews;
@@ -101,8 +102,9 @@ contract DurianContract {
     struct Tree {
         string treeID;
         string speciesName;
-        Durian[] fruits;
+        string[] childs;
     }
+    mapping  (string => Tree) public TreeList;
 
 //__________________________structures______________________________
 
@@ -125,7 +127,6 @@ contract DurianContract {
         }
         return RatingNo.average;
     }
-
     //add new staff
     function addStaff(
         address newstaffs, 
@@ -141,13 +142,13 @@ contract DurianContract {
         );
         staffCount++;
     }
-    //adding new durian -- maps id to the struct for durian
+    //adding new durian -- maps id to the struct for durian --adds tree automatically
     function addDurian(
         string memory id,
         string memory species,
         uint256 weight,
         uint256 harvested_date_time,
-        uint256 harvest_tree,
+        string memory harvest_tree,
         uint256 harvest_farm
     ) public harvestAccess() {
         durians[id] = Durian(
@@ -164,6 +165,18 @@ contract DurianContract {
             false,
             "perfect"
         );
+        if (!compare(TreeList[harvest_tree].treeID,harvest_tree)) {
+            array.push(id);
+            TreeList[harvest_tree] = Tree(
+                harvest_tree,
+                species,
+                array
+            );
+            array.pop();
+        }
+        else {
+            TreeList[harvest_tree].childs.push(id);
+        }
         durianCount++;
     }
     //adding new price for species
@@ -175,7 +188,18 @@ contract DurianContract {
             name,
             price
         );
-        durianCount++;
+    }
+
+    function addFarm(
+        string memory name,
+        string memory farmID,
+        address farmOwner
+    ) public onlyBy(farmOwner){
+        FarmList[name] = Farm(
+            name,
+            farmID,
+            farmOwner
+        );
     }
 
 //===========additions
